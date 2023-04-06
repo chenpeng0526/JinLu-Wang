@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<!-- index.wxml -->
+
+<!-- 地区选择器 -->
+<view class="region-picker">
+  <view class="region-picker-title">选择地区</view>
+  <picker mode="region" value="{{region}}" bindregionchange="bindRegionChange">
+    <view class="picker-text">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+  </picker>
+</view>
+
+<!-- 顶部菜单栏 -->
+<view class="tab-bar">
+  <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap="switchTab" data-tab="0">首页</view>
+  <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap="switchTab" data-tab="1">找律师</view>
+  <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap="switchTab" data-tab="2">商城</view>
+  <view class="tab-item {{currentTab == 3 ? 'active' : ''}}" bindtap="switchTab" data-tab="3">咨询</view>
+  <view class="tab-item {{currentTab == 4 ? 'active' : ''}}" bindtap="switchTab" data-tab="4">我的</view>
+</view>
+
+<!-- 横向滑动列表 -->
+<swiper class="swiper" current="{{currentSwiper}}">
+  <swiper-item class="swiper-item">
+    <view class="item">法律商城</view>
+  </swiper-item>
+  <swiper-item class="swiper-item">
+    <view class="item">法律咨询</view>
+  </swiper-item>
+  <swiper-item class="swiper-item">
+    <view class="item">1对1咨询</view>
+  </swiper-item>
+  <swiper-item class="swiper-item">
+    <view class="item">同城律师</view>
+  </swiper-item>
+  <swiper-item class="swiper-item">
+    <view class="item">法律常识</view>
+  </swiper-item>
+  <swiper-item class="swiper-item">
+    <view class="item">罪名库</view>
+  </swiper-item>
+  <swiper-item class="swiper-item">
+    <view class="item">法律法规</view>
+  </swiper-item>
+  <swiper-item class="swiper-item">
+    <view class="item">自媒体</view>
+  </swiper-item>
+</swiper>
