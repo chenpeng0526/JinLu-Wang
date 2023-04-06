@@ -1,47 +1,39 @@
-<!--index.wxml-->
-<!-- index.wxml -->
 
-<!-- 地区选择器 -->
-<view class="region-picker">
-  <view class="region-picker-title">选择地区</view>
-  <picker mode="region" value="{{region}}" bindregionchange="bindRegionChange">
-    <view class="picker-text">{{region[0]}} {{region[1]}} {{region[2]}}</view>
-  </picker>
+<!--地区选择器-->
+<view class="location-picker" hidden="{{!showLocationPicker}}">
+  <view class="location-picker-mask" bindtap="hideLocationPicker"></view>
+  <picker-view class="location-picker-view" value="{{locationValue}}" bindchange="onLocationPickerChange" indicator-style="height: 50rpx;">
+    <picker-view-column>
+      <view class="location-picker-column">
+        <view wx:for="{{locations}}" wx:key="{{index}}" class="location-picker-option {{index === locationValue[0] ? 'active' : ''}}">
+          {{item}}
+        </view>
+      </view>
+    </picker-view-column>
+    <picker-view-column>
+      <view class="location-picker-column">
+        <view wx:for="{{subLocations}}" wx:key="{{index}}" class="location-picker-option {{index === locationValue[1] ? 'active' : ''}}">
+          {{item}}
+        </view>
+      </view>
+    </picker-view-column>
+  </picker-view>
 </view>
 
-<!-- 顶部菜单栏 -->
-<view class="tab-bar">
-  <view class="tab-item {{currentTab == 0 ? 'active' : ''}}" bindtap="switchTab" data-tab="0">首页</view>
-  <view class="tab-item {{currentTab == 1 ? 'active' : ''}}" bindtap="switchTab" data-tab="1">找律师</view>
-  <view class="tab-item {{currentTab == 2 ? 'active' : ''}}" bindtap="switchTab" data-tab="2">商城</view>
-  <view class="tab-item {{currentTab == 3 ? 'active' : ''}}" bindtap="switchTab" data-tab="3">咨询</view>
-  <view class="tab-item {{currentTab == 4 ? 'active' : ''}}" bindtap="switchTab" data-tab="4">我的</view>
+
+<!--顶部区域-->
+<view class="top">
+  <view class="location" bindtap="showLocationPicker">{{location}}</view>
+  <view class="action">
+    <navigator url="/pages/onlineConsult/onlineConsult">
+      <view class="action-item">极速咨询</view>
+    </navigator>
+    <navigator url="/pages/phoneConsult/phoneConsult">
+      <view class="action-item">电话咨询</view>
+    </navigator>
+    <navigator url="/pages/findLawyer/findLawyer">
+      <view class="action-item">找律师</view>
+    </navigator>
+  </view>
 </view>
 
-<!-- 横向滑动列表 -->
-<swiper class="swiper" current="{{currentSwiper}}">
-  <swiper-item class="swiper-item">
-    <view class="item">法律商城</view>
-  </swiper-item>
-  <swiper-item class="swiper-item">
-    <view class="item">法律咨询</view>
-  </swiper-item>
-  <swiper-item class="swiper-item">
-    <view class="item">1对1咨询</view>
-  </swiper-item>
-  <swiper-item class="swiper-item">
-    <view class="item">同城律师</view>
-  </swiper-item>
-  <swiper-item class="swiper-item">
-    <view class="item">法律常识</view>
-  </swiper-item>
-  <swiper-item class="swiper-item">
-    <view class="item">罪名库</view>
-  </swiper-item>
-  <swiper-item class="swiper-item">
-    <view class="item">法律法规</view>
-  </swiper-item>
-  <swiper-item class="swiper-item">
-    <view class="item">自媒体</view>
-  </swiper-item>
-</swiper>

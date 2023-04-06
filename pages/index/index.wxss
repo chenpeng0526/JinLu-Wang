@@ -1,15 +1,57 @@
-/**index.wxss**/
-/* index.wxss */
-
-.region-picker {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
+/* 顶部区域样式 */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 30rpx;
   background-color: #fff;
-  padding: 20rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  z-index: 2;
 }
 
-.region-picker-title {
-  font-size
+/* 地区选择器样式 */
+.location-picker {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.location-picker-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.location-picker-view {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 500rpx;
+  background-color: #fff;
+}
+
+.location-picker-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50rpx;
+  border-right: 1rpx solid #e5e5e5;
+}
+
+.location-picker-option {
+  font-size: 28rpx;
+  color: #333;
+  padding: 0 20rpx;
+}
+
+.location-picker-option.active {
+  color: #00b38a;
+}
